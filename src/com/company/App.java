@@ -1,3 +1,4 @@
+
 package com.company;
 
 import java.util.Scanner;
@@ -81,8 +82,6 @@ public class App {
             System.out.println(e.getMessage());
         }
         scanner.close();
-        System.out.println("Saving File...");
-        parkingLot.saveFile();
     }
 
 }

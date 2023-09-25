@@ -1,15 +1,6 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.function.Function;
-
 public class ParkingLot {
-
-    private String filename = System.getProperty("user.dir") + "\\src\\parking.data";
 
     final int MAXFLOORS = 10;
 
@@ -17,7 +8,6 @@ public class ParkingLot {
 
     public ParkingLot() {
         createFloors();
-        loadFile();
     }
 
     public void createFloors() {
@@ -106,35 +96,4 @@ public class ParkingLot {
         slot.setVehicle(null);
         slot.setTicket(null);
     }
-
-    /* File Management */
-    void saveFile() {
-        try {
-            clearFile();
-            FileOutputStream fileOutputStream = new FileOutputStream(filename);
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(floors);
-            objectOutputStream.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    void loadFile() {
-        try {
-            FileInputStream fileInputStream = new FileInputStream(filename);
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            floors = (ParkingFloor[]) objectInputStream.readObject();
-            System.out.println(floors);
-            objectInputStream.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    void clearFile() {
-        File file = new File(filename);
-        file.delete();
-    }
-
 }

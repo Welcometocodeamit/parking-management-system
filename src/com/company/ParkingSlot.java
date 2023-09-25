@@ -1,8 +1,7 @@
 package com.company;
 
-import java.io.Serializable;
 
-public class ParkingSlot implements Serializable {
+public class ParkingSlot{
     private Vehicle vehicle;
     private Ticket ticket;
     private boolean occupied;

@@ -1,8 +1,7 @@
 package com.company;
 
-import java.io.Serializable;
 
-public class ParkingFloor implements Serializable {
+public class ParkingFloor {
     final int MAXSLOTS = 10;
 
     private ParkingSlot[] slots = new ParkingSlot[MAXSLOTS];
